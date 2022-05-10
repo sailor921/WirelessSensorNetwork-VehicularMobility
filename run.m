@@ -7,7 +7,7 @@ disp("Welcome to Wireless Sensor Simulation");
 disp("............................................................");
 disp("............................................................");
 pause(3)
- 
+
 % Initialization Inputs
 max_dimension = 100; % Maximum Dimension of the WSN Plot
 
