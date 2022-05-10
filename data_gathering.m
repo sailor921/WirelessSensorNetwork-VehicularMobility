@@ -18,7 +18,7 @@ while training_count < train_data
     
     % Initialization of the WSN
     SN = createWSN(n, dims, ener('init'), rounds, false);
-    [SN, ms_ids] = create_vehicular_sinks(SN);
+    [SN, ms_ids] = create_vehicular_sinks(SN, dims);
 
     % Group the WSN into clusters
     SN = cluster_grouping(SN, n_clusters, dims);

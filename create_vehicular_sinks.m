@@ -22,6 +22,8 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y <= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (x - SN.n(j).x)^2 );
+                SN.n(j).direction = 'left';
+                SN.n(j).direction_moved = 1;
             end 
         end 
         
@@ -32,6 +34,8 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y >= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (x - SN.n(j).x)^2 );
+                SN.n(j).direction = 'right';
+                SN.n(j).direction_moved = -1;
             end 
         end 
     
@@ -42,6 +46,8 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y <= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (y - SN.n(j).y)^2 );
+                SN.n(j).direction = 'down';
+                SN.n(j).direction_moved = 1;
             end 
         end 
         
@@ -52,6 +58,8 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y >= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (y - SN.n(j).y)^2 );
+                SN.n(j).direction = 'up';
+                SN.n(j).direction_moved = -1;
             end 
         end 
         

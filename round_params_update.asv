@@ -111,7 +111,7 @@ for i = 1:length(SN.n)
     % Update new node positions
     if (strcmp(SN.n(i).role, 'N') || strcmp(SN.n(i).role, 'P')) && strcmp(SN.n(i).cond, 'A')
         dist_moved = mob_params('min_dist') + rand * (mob_params('max_dist') - mob_params('min_dist'));
-    elseif strcmp(SN.n(i).role, 'S')
+    elseif 
         dist_moved = mob_params('sn_min_dist') + rand * (mob_params('sn_max_dist') - mob_params('sn_min_dist'));
     else
         dist_moved =0;
@@ -162,8 +162,8 @@ for i = 1:length(SN.n)
             end
         end
          
-    elseif  (dist_moved ~= 0) && strcmp(SN.n(i).role, 'S')
-        SN = vehicular_sink_update(SN, i, dims, dist_moved);
+    else
+        SN = vehicular_sink_update(SN, dims);
     end
 end
 
