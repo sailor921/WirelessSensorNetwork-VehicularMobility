@@ -1,4 +1,4 @@
-                       close all;
+close all;
 clc;
 clear;
 
@@ -46,7 +46,7 @@ mob_params = containers.Map({'min_dist', 'max_dist', 'sn_min_dist', 'sn_max_dist
 
 if generate_new_model
     % Gather Mobile Sink Data (Based on Simulation Input)
-    data = data_gathering(n, 4 dims, ener, n_clusters, rounds, mob_params, train_data);
+    data = data_gathering(n, dims, ener, n_clusters, rounds, mob_params, train_data);
 
     % Data Munging
     sn_model = model_training(data, train_data, 4);
@@ -55,8 +55,8 @@ else
 end
 
 %% Initialization of the WSN
-[SN] = createWSN(n, dims, ener('init'), rounds);
-[SN, ms_ids] = create_vehicular_sinks(SN);
+SN = createWSN(n, dims, ener('init'), rounds, 12453);
+[SN, ms_ids] = create_vehicular_sinks(SN, dims);
 
 %% Smiluation of the WSN
 [SN, round_params, sim_params] = simulation_rounds(rounds, SN, dims, ener, k, ms_ids, n_clusters, mob_params, sn_model, past_data_considered);

@@ -55,7 +55,7 @@ else
 end
 
 %% Initialization of the WSN
-SN = createWSN(n, dims, ener('init'), rounds);
+SN = createWSN(n, dims, ener('init'), rounds );
 [SN, ms_ids] = create_vehicular_sinks(SN, dims);
 
 %% Smiluation of the WSN

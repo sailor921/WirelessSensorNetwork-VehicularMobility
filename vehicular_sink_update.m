@@ -27,7 +27,7 @@ while (~mobility_complete)
         if x_dest > dims('x_max')
             node_moved_out = true;
             SN.n(id).direction_moved = reverse_direction(SN.n(id).direction_moved);
-            x_dest = dims('x_max')/2; 
+            x_dest = dims('x_max'); 
         elseif x_dest < dims('x_max')/2
             node_moved_out = true;
             SN.n(id).direction_moved = reverse_direction(SN.n(id).direction_moved);
@@ -47,7 +47,7 @@ while (~mobility_complete)
         if y_dest > dims('y_max')
             node_moved_out = true;
             SN.n(id).direction_moved = reverse_direction(SN.n(id).direction_moved);
-            y_dest = dims('y_max')/2; 
+            y_dest = dims('y_max'); 
         elseif y_dest < dims('y_max')/2
             node_moved_out = true;
             SN.n(id).direction_moved = reverse_direction(SN.n(id).direction_moved);
