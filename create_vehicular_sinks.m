@@ -22,8 +22,6 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y <= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (x - SN.n(j).x)^2 );
-                SN.n(j).direction = 'left';
-                SN.n(j).direction_moved = 1;
             end 
         end 
         
@@ -34,8 +32,6 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y >= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (x - SN.n(j).x)^2 );
-                SN.n(j).direction = 'right';
-                SN.n(j).direction_moved = -1;
             end 
         end 
     
@@ -46,8 +42,6 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y <= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (y - SN.n(j).y)^2 );
-                SN.n(j).direction = 'down';
-                SN.n(j).direction_moved = 1;
             end 
         end 
         
@@ -58,8 +52,6 @@ for i=1:4
             if strcmp(SN.n(j).role, 'N') && SN.n(j).y >= dims('y_min') + 0.5*(dims('y_max')-dims('y_min'))
                 nodes_ids(end+1) = SN.n(j).id;
                 dist_to_node(end+1) = sqrt( (y - SN.n(j).y)^2 );
-                SN.n(j).direction = 'up';
-                SN.n(j).direction_moved = -1;
             end 
         end 
         
@@ -74,8 +66,22 @@ for i=1:4
     
     SN.n(I).col = "k"; % node color when plotting
     SN.n(I).size = 30; % marker size when plotting
-    SN.n(i).alpha = 1; % the opacity when plotting
+    SN.n(I).alpha = 1; % the opacity when plotting
     
+    if mod(i, 2) == 0 && i <= 2
+        SN.n(I).direction = 'down';
+        SN.n(I).direction_moved = 1;
+    elseif mod(i, 2) == 0 && i > 2
+        SN.n(I).direction = 'up';
+        SN.n(I).direction_moved = -1;
+    elseif mod(i, 2) == 1 && i <= 2
+        SN.n(I).direction = 'left';
+        SN.n(I).direction_moved = 1;
+    elseif mod(i, 2) == 1 && i > 2
+        SN.n(I).direction = 'right';
+        SN.n(I).direction_moved = -1;
+    end
+        
     ms_ids(1, i) = I;
 
 end
