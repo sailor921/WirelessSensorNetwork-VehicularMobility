@@ -23,7 +23,7 @@ n = 100; % Number of nodes
 
 % sn = 4; % Number of mobile sink [Fixed at 4]
 
-generate_new_model = true; % boolean to decide the generation of new predictive model for the mobile sinks
+generate_new_model = false; % boolean to decide the generation of new predictive model for the mobile sinks
 train_data = 1; % Number of training rounds where data is to be gathered
 past_data_considered = 10; % Number of past data ussed in prediction
 
