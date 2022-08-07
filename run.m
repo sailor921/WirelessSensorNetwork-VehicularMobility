@@ -8,6 +8,8 @@ disp("............................................................");
 disp("............................................................");
 pause(3)
 
+export_final_data = true;
+
 % Initialization Inputs
 max_dimension = 100; % Maximum Dimension of the WSN Plot
 
@@ -21,7 +23,7 @@ n = 100; % Number of nodes
 
 % sn = 4; % Number of mobile sink [Fixed at 4]
 
-generate_new_model = false; % boolean to decide the generation of new predictive model for the mobile sinks
+generate_new_model = true; % boolean to decide the generation of new predictive model for the mobile sinks
 train_data = 1; % Number of training rounds where data is to be gathered
 past_data_considered = 10; % Number of past data ussed in prediction
 
@@ -29,7 +31,7 @@ rounds = 1000; % Number of rounds per simulation
 k = 8000; % Bits transmitted per packet
 
 % Clustering Paramters
-n_clusters = 5;
+n_clusters = 8;
 
 % Mobility Parameters
 min_dist = 0; % Minimum mobility for sensor nodes (in m)
@@ -74,3 +76,9 @@ plot_data(rounds, sim_params)
 
 %% Mobility Visualization
 plot_simulation(SN, rounds, dims)
+
+%% Export Data
+
+if export_final_data
+    export_data(SN, rounds, sim_params, dims)
+end
